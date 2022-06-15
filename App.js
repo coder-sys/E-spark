@@ -14,7 +14,7 @@ import Folder from './folder';
 import Frontpage from './frontpage';
 export default function App() {
   return (
-    <SafeAreaProvider style={styles.container}>
+    <SafeAreaProvider >
 <AppContainer />
 
     </SafeAreaProvider>
