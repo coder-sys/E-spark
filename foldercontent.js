@@ -80,11 +80,13 @@ console.log(retrievegoogledata1,retrievegoogledata2)
                        return(
                            <Google_Tag bn={'save source'}val={data} link={retrievegoogledata2[index]} clickfunction={async()=>{
                             retrievegoogledata2[index].split('').map((data_)=>{
+                                let linkjoin_ = []
+                                let djoin_ = []
                                 if(data_ == '/'){
                                     console.log('alert')
                                     data_ = '_'
                                 }
-                                linkjoin.push(data_)
+                                linkjoin_.push(data_)
 
                             })
                             data.split('').map((_)=>{
@@ -92,14 +94,14 @@ console.log(retrievegoogledata1,retrievegoogledata2)
                                     _ = "_"
                                     console.log('alert')
                                 }
-                                djoin.push(_)
+                                djoin_.push(_)
 
                             })
                         
 
                             
                             console.log(djoin.join(''),linkjoin.join(""))
-                            let api = await fetch(`https://e-spark.herokuapp.com/add_google_content/${name}/${_foldername_.data}/${djoin.join("")}/${linkjoin.join("")}`)
+                            let api = await fetch(`https://e-spark.herokuapp.com/add_google_content/${name}/${_foldername_.data}/${djoin_.join("")}/${linkjoin_.join("")}`)
                             api = await api.json()
                             console.log(api)
                            }}/>
@@ -128,11 +130,13 @@ console.log(retrievegoogledata1,retrievegoogledata2)
                             
                             clickfunction={async()=>{
                                 youtubeAPILinks[index].split('').map((data_)=>{
+                                    let ytlinkjoin_ = []
+                                    let ytdjoin_ = []
                                     if(data_ == '/'){
                                         console.log('alert')
                                         data_ = '_'
                                     }
-                                    ytlinkjoin.push(data_)
+                                    ytlinkjoin_.push(data_)
     
                                 })
                                 data.split('').map((_)=>{
@@ -140,14 +144,14 @@ console.log(retrievegoogledata1,retrievegoogledata2)
                                         _ = "_"
                                         console.log('alert')
                                     }
-                                    ytdjoin.push(_)
+                                    ytdjoin_.push(_)
     
                                 })
                             
     
                                 
                                 console.log('link is '+ytlinkjoin.join("").split('=')[1])
-                                let api = await fetch(`https://e-spark.herokuapp.com/add_youtube_content/${name}/${_foldername_.data}/${ytdjoin.join("")}/${ytlinkjoin.join("").split('=')[1]}`)
+                                let api = await fetch(`https://e-spark.herokuapp.com/add_youtube_content/${name}/${_foldername_.data}/${ytdjoin.join("")}/${ytlinkjoin_.join("").split('=')[1]}`)
                                 api = await api.json()
                                 console.log(api)
                                }}
