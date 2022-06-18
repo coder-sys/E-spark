@@ -77,11 +77,12 @@ console.log(retrievegoogledata1,retrievegoogledata2)
                 <br></br><br></br><div>
                 {
                    retrievegoogledata1.map((data,index)=>{
+                    var linkjoin_ = []
+                    var djoin_ = []
+
                        return(
                            <Google_Tag bn={'save source'}val={data} link={retrievegoogledata2[index]} clickfunction={async()=>{
                             retrievegoogledata2[index].split('').map((data_)=>{
-                                let linkjoin_ = []
-                                let djoin_ = []
                                 if(data_ == '/'){
                                     console.log('alert')
                                     data_ = '_'
@@ -125,13 +126,14 @@ console.log(retrievegoogledata1,retrievegoogledata2)
                 <div id='youtubecol' style={{marginLeft:'109px'}}>
                 {   
                     youtubeAPITitles.map((data,index)=>{
+                        let ytlinkjoin_ = []
+                        let ytdjoin_ = []
                         return(
                             <Google_Tag val={data}  bn={'save source'}link={youtubeAPILinks[index]}  
                             
                             clickfunction={async()=>{
                                 youtubeAPILinks[index].split('').map((data_)=>{
-                                    let ytlinkjoin_ = []
-                                    let ytdjoin_ = []
+
                                     if(data_ == '/'){
                                         console.log('alert')
                                         data_ = '_'
@@ -151,7 +153,7 @@ console.log(retrievegoogledata1,retrievegoogledata2)
     
                                 
                                 console.log('link is '+ytlinkjoin.join("").split('=')[1])
-                                let api = await fetch(`https://e-spark.herokuapp.com/add_youtube_content/${name}/${_foldername_.data}/${ytdjoin.join("")}/${ytlinkjoin_.join("").split('=')[1]}`)
+                                let api = await fetch(`https://e-spark.herokuapp.com/add_youtube_content/${name}/${_foldername_.data}/${ytdjoin_.join("")}/${ytlinkjoin_.join("").split('=')[1]}`)
                                 api = await api.json()
                                 console.log(api)
                                }}
