@@ -64,7 +64,7 @@ export default function FolderContent(props){
             </div>
                
                 
-                <div style={{padding:'10px'}}><TextInput type='text' placeholder='Google search' style={{padding:15,marginLeft:100,borderWidth:2}} onChangeText={(e)=>(setGoogleSearch(e))}/>
+                <div style={{padding:'10px'}}><TextInput type='text' placeholder='Google_ search' style={{padding:15,marginLeft:100,borderWidth:2}} onChangeText={(e)=>(setGoogleSearch(e))}/>
                 <button style={{backgroundColor:'#3275a6'}} onClick={async()=>{
 let api = await fetch(`https://e-spark.herokuapp.com/get_google_content/${googlesearch}`)
 api = await api.json()
