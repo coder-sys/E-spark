@@ -142,7 +142,7 @@ console.log(retrievegoogledata1,retrievegoogledata2)
                                 data.split('').map((_)=>{
                                     if(_ == '/'){
                                         _ = "_"
-                                        console.log('alert')
+                                         console.log('alert')
                                     }
                                     ytdjoin_.push(_)
     
