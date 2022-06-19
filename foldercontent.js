@@ -39,18 +39,19 @@ export default function FolderContent(props){
             }}>Stored data</button><br></br>
             <div>{
                 stored_data_array.map((data,index)=>{
+                    let linkarray__ = []
                     data['link'].split('').map((data,index)=>{
                         if(data=='_'){
-                            linkarray[index]='/'
+                            linkarray__[index]='/'
                         }
                         else{
-                            linkarray[index]=data
+                            linkarray__[index]=data
                         }
                     })
-                    console.log(linkarray.join(""))
+                    console.log(linkarray__.join(""))
                     return (
                         <div>
-                        <Google_Tag bn={''}val={data['name']} link={linkarray.join("")}/>
+                        <Google_Tag bn={''}val={data['name']} link={linkarray__.join("")}/>
                         <br></br>
                         <br></br>
                         </div>
@@ -64,7 +65,7 @@ export default function FolderContent(props){
             </div>
                
                 
-                <div style={{padding:'10px'}}><TextInput type='text' placeholder='Google_ search' style={{padding:15,marginLeft:100,borderWidth:2}} onChangeText={(e)=>(setGoogleSearch(e))}/>
+                <div style={{padding:'10px'}}><TextInput type='text' placeholder='Google search' style={{padding:15,marginLeft:100,borderWidth:2}} onChangeText={(e)=>(setGoogleSearch(e))}/>
                 <button style={{backgroundColor:'#3275a6'}} onClick={async()=>{
 let api = await fetch(`https://e-spark.herokuapp.com/get_google_content/${googlesearch}`)
 api = await api.json()
